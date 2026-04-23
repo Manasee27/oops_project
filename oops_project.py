@@ -1,9 +1,32 @@
 class Chatbook:
+
+    __user_id=0
+    # There is only ONE copy of __user_id, no matter how many objects you create and many instances
+    # its called class object
+
     def __init__(self):
+
+        self.id = Chatbook.__user_id
+        Chatbook.__user_id+=1
+        # this is a way to access class variable
+        self.__name="default_user"
+
         self.username = ''
+        # self.username this is an instance variable, only applicable for one object
         self.password = ''
         self.loggedin = False
         self.menu()
+
+    @staticmethod
+    def getname():
+        return Chatbook.__user_id
+    
+    @staticmethod
+    def setname(val):
+        Chatbook.__user_id =val
+        return Chatbook.__user_id
+
+    
 
     def menu(self):
         user_input = input("""Welcome to Chatbook, how to proceed?
@@ -21,7 +44,9 @@ class Chatbook:
         elif user_input == '3':
             pass
         else:
-            exit()
+            # exit() this kills the entire python program
+            return 
+        # 'return' go back to caller (i.e., __init__)
 
     def signup(self):
         name = input("Enter your name: ")
@@ -41,8 +66,11 @@ class Chatbook:
             self.loggedin=True
         else:
             print("try again")
-            self.menu()
+        self.menu()
 
 
 obj = Chatbook()
-print(obj.username)
+print("username",obj.username)
+print(obj._Chatbook__name)
+obj.setname(8)
+print(obj.getname())

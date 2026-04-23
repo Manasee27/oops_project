@@ -1,13 +1,14 @@
-lst=[1,2,3]
-lst.
 
 
-# if we use lst.capitalize(), which is not a method inside the 'list' class in python then it throws an error.
+from oops_project import Chatbook
+obj=Chatbook()
+#  this is when we are importing class from a file
 
-# Error:
-#     lst.capitalize()
-#     ^^^^^^^^^^^^^^
-# AttributeError: 'list' object has no attribute 'capitalize'
+# METHOD is always a function written insite the class
 
-lst.append(5)
-print(lst)
+# 'self' has the same ID ( mem address ) as the object
+
+# encapsulation
+# getter and setter
+# staticmethod 
+
